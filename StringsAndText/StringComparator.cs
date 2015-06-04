@@ -13,19 +13,18 @@ namespace StringsAndText
         /* ************************************************
          * StringComparator.cs
          * 
-         * Purpose:  Learn logic to compare a candidate string versus a source string, to see if the candidate is 
-         *    contained within the source, either directly (in-order) or as a permutation.
-         * 
-         * Goal:  Learn logic to compare a candidate string versus a source string, to see if the candidate is 
-         *    contained within the source, either directly or as a permutation.  Learn string comparisons without
-         *    using RegEx nor other libraries.
+         * Purpose:  Implement logic to compare a candidate string versus a source string, to see if the candidate  
+         *    is contained within the source, either directly or as a permutation.  
+         *    
+         * Goal:  Learn string comparison logic without using RegEx nor other high level libraries.
          *   
          * Design Choices:  Each method required a different comparison approach.  Contains was the most straight-
          *    forward, overlaying the candidate on top of substrings of the source.  PermutationExact does a sort
          *    and compare - note that I chose to compare each character rather than a higher level string
          *    comparison.  PermutationSubstring needs to 'consume' each matched character to ensure repeat
          *    occurrences of a character are handled.  While PermutationSubstring did reuse Contains, I did not 
-         *    find as much code reuse across these methods as I initially thought I would.
+         *    find as much code reuse across these methods as I initially thought I would.  I chose to implement 
+         *    these as static methods since I'm encapsulating logic but no internal data members.
          *   
          * Author:  Robbie Devine, 03 Jun 2015  
          * ************************************************
