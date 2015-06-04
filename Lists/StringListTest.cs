@@ -31,6 +31,7 @@ namespace Lists
             int expectedMaxSize = 8;
             int expectedNextIndexValue = 5;
             int expectedCountOfCharacters = 5;
+            string expectedOutputString = "01234";
 
             for (int i = 0; i < 5; i++)
             {
@@ -40,10 +41,12 @@ namespace Lists
             int actualMaxSize = stringList.MaxSize;
             int actualNextIndexValue = stringList.NextIndexValue;
             int actualCountOfCharacters = stringList.CountOfCharacters;
+            string actualOutputString = stringList.OutputToString();
 
             Assert.AreEqual(expectedMaxSize, actualMaxSize);
             Assert.AreEqual(expectedNextIndexValue, actualNextIndexValue);
             Assert.AreEqual(expectedCountOfCharacters, actualCountOfCharacters);
+            Assert.AreEqual(expectedOutputString, actualOutputString);
         }
 
         [TestMethod]
@@ -53,6 +56,7 @@ namespace Lists
             int expectedMaxSize = 16;
             int expectedNextIndexValue = 10;
             int expectedCountOfCharacters = 10;
+            string expectedOutputString = "0123456789";
 
             for (int i = 0; i < 10; i++)
             {
@@ -62,10 +66,12 @@ namespace Lists
             int actualMaxSize = stringList.MaxSize;
             int actualNextIndexValue = stringList.NextIndexValue;
             int actualCountOfCharacters = stringList.CountOfCharacters;
+            string actualOutputString = stringList.OutputToString();
 
             Assert.AreEqual(expectedMaxSize, actualMaxSize);
             Assert.AreEqual(expectedNextIndexValue, actualNextIndexValue);
             Assert.AreEqual(expectedCountOfCharacters, actualCountOfCharacters);
+            Assert.AreEqual(expectedOutputString, actualOutputString);
         }
 
         [TestMethod]
@@ -75,8 +81,9 @@ namespace Lists
             int expectedMaxSize = 16;
             int expectedNextIndexValue = 12;
             int expectedCountOfCharacters = 70;
+            string expectedOutputString = "The lazy rabbit slept longer than the doormouse, upsetting the hatter.";
 
-            stringList.Add("the");
+            stringList.Add("The");
             stringList.Add(" lazy");
             stringList.Add(" rabbit");
             stringList.Add(" slept");
@@ -92,10 +99,12 @@ namespace Lists
             int actualMaxSize = stringList.MaxSize;
             int actualNextIndexValue = stringList.NextIndexValue;
             int actualCountOfCharacters = stringList.CountOfCharacters;
+            string actualOutputString = stringList.OutputToString();
 
             Assert.AreEqual(expectedMaxSize, actualMaxSize);
             Assert.AreEqual(expectedNextIndexValue, actualNextIndexValue);
             Assert.AreEqual(expectedCountOfCharacters, actualCountOfCharacters);
+            Assert.AreEqual(expectedOutputString, actualOutputString);
         }
     }
 }

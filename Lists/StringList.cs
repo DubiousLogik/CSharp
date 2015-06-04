@@ -9,16 +9,20 @@ namespace Lists
 {
     /* ************************************************
      * StringList.cs
+     * 
      * Purpose:  StringList implements a subset of the C# StringBuilder functionality, including Add and OutputToString
+     * 
      * Goal:  Learn data structures behind StringBuilder, in this case an ArrayList.  Implement a basic ArrayList using  
      *   data structures such as Array, which is fixed in size and does not automatically grow as you need to add more
      *   elements beyond the array maximum size.  Add logic to handle growing the array size as necessary by detecting
      *   limit cases (double the size when full).
+     *   
      * Design Choices:  At some point I needed to handle each character individually in order to get an array of single 
-     *   digit values.  I chose to not pay this cost in the Add method, since in my experience that is generally called 
-     *   lots of times as the string gets built.  If I converted strings to single digits up front (during Add) I'd 
-     *   have to call Double a lot more often, resulting in more copying of data from one array to its doubled 
-     *   replacement.  Instead I convert to a char array once on OutputToString.
+     *   digit values from which I'd concatenate the final output.  I chose to not pay this cost in the Add method, 
+     *   since in my experience that is generally called lots of times as the string gets built. If I converted strings 
+     *   to single digits up front (during Add) I'd have to call Double a lot more often, resulting in more copying of
+     *   data from one array to its doubled replacement.  Instead I convert to a char array once on OutputToString.
+     *   
      * Author:  Robbie Devine, 02 Jun 2015  
      * ************************************************
     */
