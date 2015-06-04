@@ -114,7 +114,7 @@ namespace StringsAndText
             {
                 if (StringComparator.Contains(source, c.ToString()))
                 {
-                    StringComparator.RemoveCharacter(source, c.ToString());
+                    source = StringComparator.RemoveCharacter(source, c.ToString());
                 }
                 else
                 {
@@ -142,17 +142,8 @@ namespace StringsAndText
             {
                 if (source.Substring(i,1) == character)
                 {
-                    if (i == 0)
-                    {
-                        return source.Substring(i + 1, source.Length - 1);
-                    }
-
-                    if (i == source.Length - 1)
-                    {
-                        return source.Substring(i, 1);
-                    }
-
-                    return source.Substring(0, i) + source.Substring(i + 1, source.Length - 1 - i);
+                    string remainder = source.Substring(0, i) + source.Substring(i + 1, source.Length - 1 - i);
+                    return remainder;
                 } 
             }
             return source;
