@@ -31,6 +31,34 @@ namespace StringsAndText
         */
 
         /// <summary>
+        /// The Contains method checks if the source string contains the candidate string.  
+        /// Comparison is case sensitive.  Empty string is considered a valid substring.
+        /// </summary>
+        /// <param name="source">Source string being evaluated</param>
+        /// <param name="candidate">Candidate substring of source string</param>
+        /// <returns></returns>
+        public static bool Contains(string source, string candidate)
+        {
+            if (source.Length < candidate.Length)
+            {
+                return false;
+            }
+
+            int index = 0;
+
+            while (index + candidate.Length <= source.Length)
+            {
+                if (source.Substring(index, candidate.Length) == candidate)
+                {
+                    return true;
+                }
+                index++;
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// PermutationExact checks if the candidate string is an exact permutation of the source string
         /// </summary>
         /// <param name="source">Source string being evaluated</param>
@@ -67,34 +95,8 @@ namespace StringsAndText
         }
 
         /// <summary>
-        /// The Contains method checks if the source string contains the candidate string.  Comparison is case sensitive.  Empty string is considered a valid substring.
-        /// </summary>
-        /// <param name="source">Source string being evaluated</param>
-        /// <param name="candidate">Candidate substring of source string</param>
-        /// <returns></returns>
-        public static bool Contains(string source, string candidate)
-        {
-            if (source.Length < candidate.Length)
-            {
-                return false;
-            }
-            
-            int index = 0;
-
-            while (index + candidate.Length <= source.Length) 
-            {
-                if (source.Substring(index, candidate.Length) == candidate)
-                {
-                    return true;
-                }
-                index++;
-            } 
-                
-            return false;
-        }
-
-        /// <summary>
-        /// PermutationSubstring checks if the candidate substring exists within the source string in any order.  Comparison is case sensitive.  Empty string is considered a valid substring.
+        /// PermutationSubstring checks if the candidate substring exists within the source string in any order.  
+        /// Comparison is case sensitive.  Empty string is considered a valid substring.
         /// </summary>
         /// <param name="source">Source string being evaluated</param>
         /// <param name="candidate">Candidate substring</param>
