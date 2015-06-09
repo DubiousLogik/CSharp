@@ -213,5 +213,18 @@ namespace StringsAndText
 
             Assert.AreEqual(expectedDoesContain, actualDoesContain);
         }
+
+        [TestMethod]
+        public void PermutationSubstring9()
+        {
+            string source = "One";
+            string candidate = "nOtte";
+            bool expectedDoesContain = false;
+
+            bool actualDoesContain = StringComparator.PermutationSubstring(source, candidate);
+
+            Assert.AreEqual(expectedDoesContain, actualDoesContain);
+        }
+
     }
 }
