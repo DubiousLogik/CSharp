@@ -9,7 +9,7 @@ namespace Lists
     /* ************************************************
      * SinglyLinkedList.cs
      * 
-     * Purpose:  Implement a singly linked list with ability to add nodes, get nodes, and return the 
+     * Purpose:  Implement a singly linked list with ability to add, get, and delete nodes, and return the 
      *   values of all nodes as a string
      * 
      * Goal:  Learn how to create linked lists, specifically the 'next node' pointer.  In C# I'm not 
@@ -19,8 +19,7 @@ namespace Lists
      *   
      * Design Choices:  I chose to separate the SinglyLinkedList class from the underlying Node implementation.
      *   The intent is that the user could interact with the SinglyLinkedList class and not need to know about
-     *   the Node class.  Only the Node class can set the NextNode element, this enforces that the user 
-     *   cannot make an error here.
+     *   the Node class.  Only the Node class can set the NextNode and Data elements.
      * 
      * Performance:  I added the lastNode element as a perf optimization, so that you don't re-traverse
      *   the entire list every time you add an element to the end, which matters a lot as the list gets large.
@@ -34,6 +33,7 @@ namespace Lists
     {
         Node firstNode = null;
         Node lastNode = null;
+        Node currentNode = null;
 
         public SinglyLinkedList() {}
 
@@ -47,23 +47,112 @@ namespace Lists
             else
             {
                 Node thisNode = new Node(input);
-                lastNode.AddNode(thisNode);
+                lastNode.AddNodeToEnd(thisNode);
                 lastNode = thisNode;
             }
         }
 
+        /// <summary>
+        /// Returns the first node (head) of the list.  Advances the current node pointer to the first node.
+        /// </summary>
+        /// <returns>Returns the first node of the list</returns>
         public Node GetFirstNode() 
         {
+            currentNode = firstNode;
             return firstNode;
         }
 
-        public Node GetNextNode(Node currentNode)
+        /// <summary>
+        /// Returns the next node after the current node.  May return null.  Advances the current node pointer to the next node.  If current node == null then the end of the list has been reached.
+        /// </summary>
+        /// <returns>returns next node after the current node.</returns>
+        public Node GetNextNode()
         {
-            return currentNode.NextNode;
+            currentNode = currentNode.NextNode;
+            return currentNode;
+        }
+
+        public bool IsEndOfList()
+        {
+            return (currentNode == lastNode);
+        }
+
+        /// <summary>
+        /// Inserts a node after the current node.  Does not advance the current node pointer.
+        /// </summary>
+        /// <param name="newNode">Node to be inserted to the list</param>
+        public void InsertNodeAfter(Node newNode)
+        {
+            currentNode.AddNodeAfter(newNode);
+        }
+
+        //public void InsertNodeBefore(Node newNode)
+
+        /// <summary>
+        /// Deletes the current node and returns the next node.  Returns null if last node is deleted.
+        /// </summary>
+        /// <returns>Returns next node after the deleted node.  Returns null if last node is deleted. </returns>
+        public Node DeleteCurrentNode()
+        {
+            if (currentNode == null)
+            {
+                Console.WriteLine("in currentNode == null");
+                return null;
+            } 
+            else if (currentNode == firstNode) 
+            {
+                Console.WriteLine("in currentNode == firstNode");
+                return this.DeleteFirstNode();
+            }
+            else if (currentNode == lastNode) 
+            {
+                Console.WriteLine("in currentNode == lastNode");
+                return this.DeleteLastNode();
+            }
+            else
+            {
+                Console.WriteLine("in currentNode == thisNode");
+                return this.DeleteThisNode();
+            }
+
+        }
+
+        private Node DeleteFirstNode()
+        {
+            Node nodeToDelete = currentNode;
+            firstNode = currentNode.NextNode;
+            currentNode = firstNode;
+            nodeToDelete = null;
+            return currentNode;
+        }
+
+        private Node DeleteLastNode()
+        {
+            Node secondToLastNode = this.GetFirstNode();
+            while (secondToLastNode.NextNode != lastNode)
+            {
+                secondToLastNode = this.GetNextNode();
+            }
+
+            secondToLastNode.SetAsLastNode();
+            lastNode = null;
+            lastNode = secondToLastNode;
+            currentNode = null;
+            return null;
+        }
+
+        private Node DeleteThisNode()
+        {
+            Node nextNode = currentNode.NextNode;
+            currentNode.ReplaceWith(nextNode);
+            nextNode = null;
+            return currentNode;
         }
 
         public string OutputNodeValuesToString()
         {
+            SinglyLinkedList thisList = this;
+
             if (firstNode == null)
             {
                 return "";
@@ -71,12 +160,12 @@ namespace Lists
 
             StringBuilder result = new StringBuilder();
 
-            Node thisNode = firstNode;
+            Node thisNode = thisList.GetFirstNode();
             result.Append(thisNode.Data);
 
             while (thisNode.NextNode != null)
             {
-                thisNode = thisNode.NextNode;
+                thisNode = thisList.GetNextNode();
                 result.Append(thisNode.Data);
             }
 
@@ -95,7 +184,7 @@ namespace Lists
             Data = input;
         }
 
-        public void AddNode(Node newNode)
+        public void AddNodeToEnd(Node newNode)
         {
             Node lastNode = this.ReadToEnd();
             lastNode.NextNode = newNode;
@@ -109,6 +198,26 @@ namespace Lists
                 thisNode = thisNode.NextNode;
             }
             return thisNode;
+        }
+
+        public void AddNodeAfter(Node newNode)
+        {
+            Node thisNode = this;
+            Node nextNode = thisNode.NextNode;
+            newNode.NextNode = nextNode;
+            thisNode.NextNode = newNode;
+        }
+
+        public void SetAsLastNode()
+        {
+            this.NextNode = null;
+        }
+
+        public void ReplaceWith(Node replacementNode)
+        {
+            Node thisNode = this;
+            thisNode.NextNode = replacementNode.NextNode;
+            thisNode.Data = replacementNode.Data;
         }
     }
 

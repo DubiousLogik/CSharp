@@ -53,6 +53,98 @@ namespace Lists
         [TestMethod]
         public void SinglyLinkedListTest4()
         {
+            string expectedListValues = "123456789";
+            SinglyLinkedList list = new SinglyLinkedList();
+
+            for (int i = 0; i < 10; i++)
+            {
+                list.AddNodeToEnd(i.ToString());
+            }
+
+            Node currentNode = list.GetFirstNode();
+            currentNode = list.DeleteCurrentNode();
+
+            string actualListValues = list.OutputNodeValuesToString();
+
+            Assert.AreEqual(expectedListValues, actualListValues);
+        }
+
+        [TestMethod]
+        public void SinglyLinkedListTest5()
+        {
+            string expectedListValues = "012345678";
+            SinglyLinkedList list = new SinglyLinkedList();
+
+            for (int i = 0; i < 10; i++)
+            {
+                list.AddNodeToEnd(i.ToString());
+            }
+
+            Node currentNode = list.GetFirstNode();
+            while (currentNode != null)
+            {
+                if (list.IsEndOfList())
+                {
+                    currentNode = list.DeleteCurrentNode();
+                }
+                else
+                {
+                    currentNode = list.GetNextNode();
+                }
+            }
+
+            string actualListValues = list.OutputNodeValuesToString();
+
+            Assert.AreEqual(expectedListValues, actualListValues);
+        }
+
+        [TestMethod]
+        public void SinglyLinkedListTest6()
+        {
+            string expectedListValues = "012456789";
+            SinglyLinkedList list = new SinglyLinkedList();
+
+            for (int i = 0; i < 10; i++)
+            {
+                list.AddNodeToEnd(i.ToString());
+            }
+
+            Node currentNode = list.GetFirstNode();
+            currentNode = list.GetNextNode();
+            currentNode = list.GetNextNode();
+            currentNode = list.GetNextNode();
+            currentNode = list.DeleteCurrentNode();
+
+            string actualListValues = list.OutputNodeValuesToString();
+
+            Assert.AreEqual(expectedListValues, actualListValues);
+        }
+
+        [TestMethod]
+        public void SinglyLinkedListTest7()
+        {
+            string expectedListValues = "012311456789";
+            SinglyLinkedList list = new SinglyLinkedList();
+
+            for (int i = 0; i < 10; i++)
+            {
+                list.AddNodeToEnd(i.ToString());
+            }
+
+            Node currentNode = list.GetFirstNode();
+            currentNode = list.GetNextNode();
+            currentNode = list.GetNextNode();
+            currentNode = list.GetNextNode();
+            list.InsertNodeAfter(new Node("11"));
+
+            string actualListValues = list.OutputNodeValuesToString();
+
+            Assert.AreEqual(expectedListValues, actualListValues);
+        }
+
+        [TestMethod]
+        public void SinglyLinkedListTest40()
+        {
             string expectedListValues = "The man in the moon likes gouda.";
             SinglyLinkedList list = new SinglyLinkedList();
 
@@ -70,7 +162,7 @@ namespace Lists
         }
 
         [TestMethod]
-        public void SinglyLinkedListTest5()
+        public void SinglyLinkedListTest50()
         {
             string expectedListValues = "01234567891011121314151617181920212223242526272829303132333435363738394041424344" +
                                             "45464748495051525354555657585960616263646566676869707172737475767778798081828384" +
