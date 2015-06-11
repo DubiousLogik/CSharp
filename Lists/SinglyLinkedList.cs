@@ -96,22 +96,18 @@ namespace Lists
         {
             if (currentNode == null)
             {
-                Console.WriteLine("in currentNode == null");
                 return null;
             } 
             else if (currentNode == firstNode) 
             {
-                Console.WriteLine("in currentNode == firstNode");
                 return this.DeleteFirstNode();
             }
             else if (currentNode == lastNode) 
             {
-                Console.WriteLine("in currentNode == lastNode");
                 return this.DeleteLastNode();
             }
             else
             {
-                Console.WriteLine("in currentNode == thisNode");
                 return this.DeleteThisNode();
             }
 
