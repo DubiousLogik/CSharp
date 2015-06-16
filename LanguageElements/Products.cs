@@ -25,6 +25,7 @@ namespace LanguageElements
 
     public class ProductC1
     {
+        //uses only C# 1.0 
         string _name;
         decimal _price;
 
@@ -58,18 +59,20 @@ namespace LanguageElements
 
     public class ProductC2
     {
+        //adds capabilities from C# 2.0
+
         string _name;
         decimal _price;
 
         public string Name
         {
             get { return _name; }
-            private set { _name = value; }
+            private set { _name = value; }  //new
         }
         public decimal Price
         {
             get { return _price; }
-            private set { _price = value; }
+            private set { _price = value; }  //new
         }
 
         public ProductC2(string name, decimal price)
@@ -78,7 +81,7 @@ namespace LanguageElements
             Price = price;
         }
 
-        public static List<ProductC2> GetSampleProducts()
+        public static List<ProductC2> GetSampleProducts()  //new
         {
             List<ProductC2> productList = new List<ProductC2>();
             productList.Add(new ProductC2("Paul Mitchell Extreme Goo", 22.99m));
@@ -99,8 +102,10 @@ namespace LanguageElements
 
     public class ProductC3
     {
-        public string Name { get; private set; }
-        public decimal Price { get; private set; }
+        //adds capabilities from C# 3.0
+
+        public string Name { get; private set; }  //new
+        public decimal Price { get; private set; }  //new
 
         public ProductC3(string name, decimal price)
         {

@@ -21,10 +21,12 @@ namespace LanguageElements
     */
     class ProductComparers
     {
+        //Note:  C# 3.0 comparer is only visible in Main since it uses lambdas and extension methods
     }
 
     public class ProductNameComparerC1 : IComparer
     {
+        //uses only C# 1.0
         public int Compare(object x, object y)
         {
             ProductC1 first = (ProductC1)x;
@@ -35,6 +37,7 @@ namespace LanguageElements
 
     public class ProductNameComparerC2 : IComparer<ProductC2>
     {
+        //uses C# 2.0
         public int Compare(ProductC2 x, ProductC2 y)
         {
             return x.Name.CompareTo(y.Name);
@@ -43,6 +46,7 @@ namespace LanguageElements
 
     public class ProductPriceComparerC2 : IComparer<ProductC2>
     {
+        //uses C# 2.0
         public int Compare(ProductC2 x, ProductC2 y)
         {
             return x.Price.CompareTo(y.Price);

@@ -12,9 +12,11 @@ namespace LanguageElements
         static void Main(string[] args)
         {
             /* ************************************************
+             * Related classes:  Products, ProductComparers, Program
              * Main:  I'm including this since some of the language syntax is demonstrated when using 
              *   the classes, not just in their defintions.  This is evident in the lambda and OrderBy
-             *   examples down in the C# 3 (ProductC3) section.  See also:  Products, ProductComparers
+             *   examples down in the C# 3 (ProductC3) section.  
+             *   I noted new features added in each class with a //new comment, also used in Main below.
              * 
              * Purpose:  This is a side-by-side set of classes where I will implement the same logic in various ways, using
              *   different elements of the C# language.  This approach is based on what I've seen in the book C# In Depth.
@@ -63,7 +65,7 @@ namespace LanguageElements
                 Console.WriteLine("\t" + p.ToString());
             }
             Console.WriteLine();
-            Console.WriteLine(">>sortd by Name, via delegate");
+            Console.WriteLine(">>sortd by Name, via delegate");  //new
             productsC2.Sort(delegate(ProductC2 x, ProductC2 y)
                 { return x.Name.CompareTo(y.Name); }
             );
@@ -80,14 +82,14 @@ namespace LanguageElements
                 Console.WriteLine(p.ToString());
             }
             Console.WriteLine();
-            Console.WriteLine(">>sortd by Price, via lambda");
+            Console.WriteLine(">>sortd by Price, via lambda");  //new
             productsC2.Sort((x, y) => x.Price.CompareTo(y.Price));
             foreach (ProductC2 p in productsC2)
             {
                 Console.WriteLine("\t" + p.ToString());
             }
             Console.WriteLine();
-            Console.WriteLine(">>sortd by Name, via lambda and OrderBy");
+            Console.WriteLine(">>sortd by Name, via lambda and OrderBy");  //new
             foreach (ProductC2 p in productsC2.OrderBy(x => x.Name))
             {
                 Console.WriteLine("\t" + p.ToString());
