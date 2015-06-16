@@ -112,18 +112,19 @@ namespace LanguageElements
             Name = name;
             Price = price;
         }
-        public ProductC3() { }
+        
+        ProductC3() { }  //new
 
         public static List<ProductC3> GetSampleProducts()
         {
-            return new List<ProductC3> 
+            return new List<ProductC3>   //new
             {
                 new ProductC3("Paul Mitchell Extreme Goo", 22.99m),
                 new ProductC3("Aquanet Permahold", 2.19m),
                 new ProductC3("Hipster Moustache Wax", 7.99m),
                 new ProductC3("Brylcream", 3.99m),
                 new ProductC3("Grecian Formula, for Men", 8.99m),
-                new ProductC3 { Name="J. Crew UberCoiff", Price= 36.99m } //new
+                new ProductC3 { Name="J. Crew UberCoiff", Price= 36.99m } //new, uses private paramaterless constructor
             };
 
         }
