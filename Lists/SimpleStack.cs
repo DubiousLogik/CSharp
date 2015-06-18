@@ -61,7 +61,7 @@ namespace Lists
             }
         }
 
-        public void RemoveTopOfStack()
+        private void RemoveTopOfStack()
         {
             topOfStack = topOfStack.PreviousNode;  //this will set topOfStack == null when popping last node
             if (topOfStack == null)

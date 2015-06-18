@@ -66,7 +66,7 @@ namespace Lists
             }
         }
 
-        public void RemoveFirstNode()
+        private void RemoveFirstNode()
         {
             FirstNode = FirstNode.NextNode;
             if (FirstNode == null)
