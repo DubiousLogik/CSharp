@@ -9,19 +9,20 @@ namespace Lists
     /* ************************************************
      * SimpleStack.cs
      * 
-     * Purpose:  Implement a functioning stack with Push, Pop and Peek methods for generic payloads.
+     * Purpose:  Implement a functioning stack (LIFO) with Push, Pop and Peek methods for generic payloads.
      * 
      * Goal:  Learn how to implement a stack, and to learn C# Generics. 
      *   
      * Design Choices:  I chose to implement this with a linked list approach, where each node on the 
      *   stack is aware of its previous node.  The node at the bottom of the stack (the first one
-     *   added) will have a previous node == null.
+     *   added) will have a previous node == null.  In this approach the container SimpleStack does
+     *   not maintain pointers to all nodes, just the top node.  
      *   
      * Author:  Robbie Devine, 17 Jun 2015  
      * ************************************************
     */
 
-    class SimpleStack<T>
+    public class SimpleStack<T>
     {
         private StackNode<T> topOfStack;
         public bool IsEmpty;
@@ -34,7 +35,7 @@ namespace Lists
         public void Push(T data)
         {
             StackNode<T> newNode = new StackNode<T>(data);
-            if (topOfStack == null)
+            if (IsEmpty)
             {
                 newNode.PreviousNode = null;
             }
@@ -48,7 +49,7 @@ namespace Lists
 
         public T Pop()
         {
-            if (topOfStack != null)
+            if (!IsEmpty)
             {
                 T result = topOfStack.Payload;
                 topOfStack = topOfStack.PreviousNode;  //this will set topOfStack == null when popping last node
@@ -60,7 +61,6 @@ namespace Lists
             }
             else
             {
-                IsEmpty = true;
                 return default(T);
             }
         }
