@@ -6,26 +6,30 @@ using System.Threading.Tasks;
 
 namespace Lists
 {
+    /* ************************************************
+     * SimpleStack.cs
+     * 
+     * Purpose:  Implement a functioning stack with Push, Pop and Peek methods for generic payloads.
+     * 
+     * Goal:  Learn how to implement a stack, and to learn C# Generics. 
+     *   
+     * Design Choices:  I chose to implement this with a linked list approach, where each node on the 
+     *   stack is aware of its previous node.  The node at the bottom of the stack (the first one
+     *   added) will have a previous node == null.
+     *   
+     * Author:  Robbie Devine, 17 Jun 2015  
+     * ************************************************
+    */
+
     class SimpleStack<T>
     {
-        /* ************************************************
-         * SimpleStack.cs
-         * 
-         * Purpose:  Implement a functioning stack with Push, Pop and Peek methods for generic payloads.
-         * 
-         * Goal:  Learn how to implement a stack, and to learn C# Generics. 
-         *   
-         * Design Choices:  I chose to implement this with a linked list approach, where each node on the 
-         *   stack is aware of its previous node.  The node at the bottom of the stack (the first one
-         *   added) will have a previous node == null.
-         *   
-         * Author:  Robbie Devine, 17 Jun 2015  
-         * ************************************************
-        */
         private StackNode<T> topOfStack;
         public bool IsEmpty;
 
-        public SimpleStack() {}
+        public SimpleStack() 
+        {
+            IsEmpty = true;
+        }
 
         public void Push(T data)
         {
@@ -33,14 +37,13 @@ namespace Lists
             if (topOfStack == null)
             {
                 newNode.PreviousNode = null;
-                topOfStack = newNode;
-                IsEmpty = false;
             }
             else
             {
                 newNode.PreviousNode = topOfStack;
-                topOfStack = newNode;
             }
+            topOfStack = newNode;
+            IsEmpty = false;
         }
 
         public T Pop()
