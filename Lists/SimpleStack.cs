@@ -52,16 +52,21 @@ namespace Lists
             if (!IsEmpty)
             {
                 T result = topOfStack.Payload;
-                topOfStack = topOfStack.PreviousNode;  //this will set topOfStack == null when popping last node
-                if (topOfStack == null)
-                {
-                    IsEmpty = true;
-                }
+                RemoveTopOfStack();
                 return result;
             }
             else
             {
                 return default(T);
+            }
+        }
+
+        public void RemoveTopOfStack()
+        {
+            topOfStack = topOfStack.PreviousNode;  //this will set topOfStack == null when popping last node
+            if (topOfStack == null)
+            {
+                IsEmpty = true;
             }
         }
 
