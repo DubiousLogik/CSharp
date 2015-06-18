@@ -89,5 +89,27 @@ namespace Lists
 
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [TestMethod]
+        public void SimpleStackTest5()
+        {
+            int expectedResult = 5050;  //sum(1..100) = n(n+1)/2 = 5050
+
+            SimpleStack<int> s = new SimpleStack<int>();
+
+            for (int i = 1; i <= 100; i++)
+            {
+                s.Push(i);
+            }
+
+            int actualResult = 0;
+
+            while (!s.IsEmpty)
+            {
+                actualResult += s.Pop();
+            }
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
