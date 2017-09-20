@@ -11,7 +11,7 @@ namespace TowersHanoi
     {
         private bool displayGameState;
         private int diskCount;
-        private int maxValue = 99;
+        private int maxPostValue = 99;
         private int countOfMoves;
         private int lastMoved;
         private int debugLimit = 1000000000;
@@ -39,19 +39,20 @@ namespace TowersHanoi
         {
             countOfMoves = 0;
 
+            if (displayGameState)
+            {
+                Console.WriteLine("Initial State");
+                this.RenderCurrentState();
+            }
+
             while (!this.GameIsComplete)
             {
-                if (displayGameState)
-                {
-                    this.RenderCurrentState();
-                }
-
                 while (this.MoveRight())
                 {
                     if (displayGameState)
                     {
-                        Console.WriteLine("Direction moved: Right");
                         this.RenderCurrentState();
+                        Console.WriteLine("Direction moved: Right");
                     }
                 }
 
@@ -59,8 +60,8 @@ namespace TowersHanoi
                 {
                     if (displayGameState)
                     {
-                        Console.WriteLine("Direction moved: Left");
                         this.RenderCurrentState();
+                        Console.WriteLine("Direction moved: Left");
                     }
                 }
 
@@ -73,6 +74,8 @@ namespace TowersHanoi
                 }
             }
 
+            Console.WriteLine();
+            Console.WriteLine("Summary:");
             Console.WriteLine($"Game is complete: {this.GameIsComplete}");
             Console.WriteLine($"Count of moves {countOfMoves}");
         }
@@ -175,7 +178,7 @@ namespace TowersHanoi
         {
             if (post.Count == 0)
             {
-                return this.maxValue;
+                return this.maxPostValue;
             }
             else
             {
@@ -185,6 +188,10 @@ namespace TowersHanoi
 
         public void RenderCurrentState()
         {
+            Console.WriteLine();
+            Console.WriteLine($"-[move: {countOfMoves}]-------------------------------");
+            Console.WriteLine($"Game is complete: {this.GameIsComplete}");
+
             List<string> linesToPrint = new List<string>();
 
             for (int i = 0; i < diskCount; i++)
@@ -200,9 +207,6 @@ namespace TowersHanoi
             {
                 Console.WriteLine(line);
             }
-
-            Console.WriteLine();
-            Console.WriteLine($"Game is complete: {this.GameIsComplete}");
         }
 
         private bool CheckIfGameIsComplete()
