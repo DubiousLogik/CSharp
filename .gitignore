@@ -5,6 +5,18 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
+*.$02
+*.err
+*.log
+*.pdb
+*.sln.cache
+*.suo
+*.user
+.*.swo
+.*.swp
+*.exe
+*.pdb
+
 # Ignore binaries
 */bin/*
 */obj/*
@@ -12,6 +24,19 @@ Desktop.ini
 bin\
 obj\
 .vs\
+.vs/
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+[Aa]md64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
