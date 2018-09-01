@@ -1,7 +1,0 @@
-D:\github\dubiousLogik\CSharp\Async\AsyncWorkbook\AsyncWorkbook\bin\Debug\AsyncWorkbook.exe.config
-D:\github\dubiousLogik\CSharp\Async\AsyncWorkbook\AsyncWorkbook\bin\Debug\AsyncWorkbook.exe
-D:\github\dubiousLogik\CSharp\Async\AsyncWorkbook\AsyncWorkbook\bin\Debug\AsyncWorkbook.pdb
-D:\github\dubiousLogik\CSharp\Async\AsyncWorkbook\AsyncWorkbook\obj\Debug\AsyncWorkbook.csprojResolveAssemblyReference.cache
-D:\github\dubiousLogik\CSharp\Async\AsyncWorkbook\AsyncWorkbook\obj\Debug\AsyncWorkbook.csproj.CoreCompileInputs.cache
-D:\github\dubiousLogik\CSharp\Async\AsyncWorkbook\AsyncWorkbook\obj\Debug\AsyncWorkbook.exe
-D:\github\dubiousLogik\CSharp\Async\AsyncWorkbook\AsyncWorkbook\obj\Debug\AsyncWorkbook.pdb
