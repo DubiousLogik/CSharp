@@ -16,6 +16,7 @@ Desktop.ini
 .*.swp
 *.exe
 *.pdb
+*.suo
 
 # Ignore binaries
 */bin/*
