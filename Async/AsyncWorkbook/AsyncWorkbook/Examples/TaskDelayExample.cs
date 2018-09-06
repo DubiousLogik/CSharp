@@ -8,7 +8,7 @@ namespace AsyncWorkbook.Examples
 {
     public class TaskDelayExample
     {
-        public void DelayWithTaskRun(int millis)
+        public void DelayWithTaskWait(int millis)
         {
             var t = Task.Run(async delegate
             {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using AsyncWorkbook.AsyncDemo;
+using AsyncWorkbook.AsyncPrototype;
 
 namespace AsyncWorkbook
 {
@@ -12,7 +13,10 @@ namespace AsyncWorkbook
     {
         static void Main(string[] args)
         {
-            AsyncDemoRunner.Run();
+            //AsyncDemoRunner.Run();
+            AsyncProtoRunner.Run();
+
+            Console.ReadLine();
         }
     }
 }
