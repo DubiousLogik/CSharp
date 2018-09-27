@@ -3,42 +3,46 @@ using System.Collections.Generic;
 using System.IdentityModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AsyncWorkbook.AsyncPrototype
 {
     public class HttpGetService
     {
-        public static IAsyncResult BeginHttpGet(AsyncCallback callback, object state)
+         public static IEnumerable<TypedAsyncResult<string>> BeginHttpGetAsync(AsyncCallback callback, object state)
         {
             Console.WriteLine("HttpGetService BeginHttpGet: start");
             TypedAsyncResult<string> asyncResult = new TypedAsyncResult<string>(callback, state);
-
+            Console.WriteLine($"BeginHttpGetAsync: AsyncResponse Id {asyncResult.GetHashCode()}");
             ContextForGet context = asyncResult.AsyncState as ContextForGet;
 
-            var httpClient = new MockHttpClient();
-            var response = httpClient.Get(context.Url);
-            string reply = response.Content.ReadAsStringAsync().Result;
+            //yield return asyncResult;
 
-            asyncResult.Complete(reply, true);
+            Thread thread = new Thread(() =>
+            {
+                var httpClient = new MockHttpClient();
+                var response = httpClient.Get(context.Url);
+                string reply = response.Content.ReadAsStringAsync().Result;
+                asyncResult.Complete(reply, true);
+                Console.WriteLine($"HttpGetService BeginHttpGet: end, reply: {reply}");
+                return;
+            });
 
-            Console.WriteLine("HttpGetService BeginHttpGet: end");
-            return asyncResult;
-        }
+            thread.Start();
 
-        public static void ContinueHttpGet(IAsyncResult asyncResult)
-        {
-            Console.WriteLine($"HttpGetService ContinueHttpGet: start, asyncResult.IsCompleted {asyncResult.IsCompleted}");
+            //var httpClient = new MockHttpClient();
+            //var response = httpClient.Get(context.Url);
+            //string reply = response.Content.ReadAsStringAsync().Result;
+            //asyncResult.Complete(reply, true);
+            //Console.WriteLine($"HttpGetService BeginHttpGet: end, reply: {reply}");
 
-            ContextForGet context = asyncResult.AsyncState as ContextForGet;
-
-            Console.WriteLine("HttpGetService ContinueHttpGet: end");
-            
-            //asyncResult.Complete(result, false);
+            yield return asyncResult;
         }
 
         public static string EndHttpGet(IAsyncResult asyncResult)
         {
+            Console.WriteLine($"EndHttpGet: AsyncResponse Id {asyncResult.GetHashCode()}");
             ContextForGet context = asyncResult.AsyncState as ContextForGet;
             Console.WriteLine("HttpGetService EndHttpGet");
             return TypedAsyncResult<string>.End(asyncResult);

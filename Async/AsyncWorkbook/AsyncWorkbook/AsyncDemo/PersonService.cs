@@ -16,11 +16,11 @@ namespace AsyncWorkbook.AsyncDemo
 
         public static IAsyncResult BeginGetPersonName(AsyncCallback callback = null, object state = null)
         {
-            Console.WriteLine($"BeginGetPersonName Entry Thread: {Thread.CurrentThread.GetHashCode()}");
+            //Console.WriteLine($"BeginGetPersonName Entry Thread: {Thread.CurrentThread.GetHashCode()}");
             TypedAsyncResult<string> asyncResult = new TypedAsyncResult<string>(callback, state);
             Thread thread = new Thread(() =>
             {
-                Console.WriteLine($"BeginGetPersonName inner Thread: {Thread.CurrentThread.GetHashCode()}");
+                //Console.WriteLine($"BeginGetPersonName inner Thread: {Thread.CurrentThread.GetHashCode()}");
                 Thread.Sleep(DelayTime);
                 asyncResult.Complete(PersonName, false);
                 return;

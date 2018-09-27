@@ -28,7 +28,7 @@ namespace AsyncWorkbook.AsyncPrototype
             response.StatusCode = HttpStatusCode.OK;
 
             int length = url.Length;
-            int delayInMillis = length * 10;
+            int delayInMillis = length * 100;
             Thread.Sleep(delayInMillis);
 
             Console.WriteLine($"MockHttpClient Get: end, url {url}"); 
