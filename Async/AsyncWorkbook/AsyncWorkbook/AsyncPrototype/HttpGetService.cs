@@ -17,25 +17,22 @@ namespace AsyncWorkbook.AsyncPrototype
             Console.WriteLine($"BeginHttpGetAsync: AsyncResponse Id {asyncResult.GetHashCode()}");
             ContextForGet context = asyncResult.AsyncState as ContextForGet;
 
-            //yield return asyncResult;
+            //Thread thread = new Thread(() =>
+            //{
+            //    var httpClient = new MockHttpClient();
+            //    var reply = httpClient.Get(context.Url);
+            //    asyncResult.Complete(reply, true);
+            //    Console.WriteLine($"HttpGetService BeginHttpGet: end, reply: {reply}");
+            //    return;
+            //});
+            //thread.Start();
 
-            Thread thread = new Thread(() =>
-            {
-                var httpClient = new MockHttpClient();
-                var response = httpClient.Get(context.Url);
-                string reply = response.Content.ReadAsStringAsync().Result;
-                asyncResult.Complete(reply, true);
-                Console.WriteLine($"HttpGetService BeginHttpGet: end, reply: {reply}");
-                return;
-            });
+            yield return asyncResult;
 
-            thread.Start();
-
-            //var httpClient = new MockHttpClient();
-            //var response = httpClient.Get(context.Url);
-            //string reply = response.Content.ReadAsStringAsync().Result;
-            //asyncResult.Complete(reply, true);
-            //Console.WriteLine($"HttpGetService BeginHttpGet: end, reply: {reply}");
+            var httpClient = new MockHttpClient();
+            var reply = httpClient.Get(context.Url);
+            asyncResult.Complete(reply, true);
+            Console.WriteLine($"HttpGetService BeginHttpGet: end, reply: {reply}");
 
             yield return asyncResult;
         }
