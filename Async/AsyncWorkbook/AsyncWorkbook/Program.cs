@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-using AsyncWorkbook.AsyncDemo;
 using AsyncWorkbook.AsyncPrototype;
 
 namespace AsyncWorkbook
@@ -16,9 +15,6 @@ namespace AsyncWorkbook
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("======== AsyncDemoRunner ==============");
-            //AsyncDemoRunner.Run();
-
             Console.WriteLine("========== AsyncProtoRunner =============");
             var sw = Stopwatch.StartNew();
             

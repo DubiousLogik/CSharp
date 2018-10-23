@@ -44,8 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsyncDemo\AsyncDemoRunner.cs" />
-    <Compile Include="AsyncDemo\PersonService.cs" />
     <Compile Include="AsyncPrototype\AsyncProtoRunner.cs" />
     <Compile Include="AsyncPrototype\ContextForGet.cs" />
     <Compile Include="AsyncPrototype\HttpGetService.cs" />
