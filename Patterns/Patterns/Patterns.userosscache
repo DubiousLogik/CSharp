@@ -1,0 +1,7 @@
+ProjectItem:D:\github\dubiousLogik\CSharp\Patterns\Patterns\Bridge\IBridgeDefinitions.cs
+ProjectItem:D:\github\dubiousLogik\CSharp\Patterns\Patterns\Bridge\SuspensionBridge.cs
+ProjectItem:D:\github\dubiousLogik\CSharp\Patterns\Patterns\Bridge\SR520.cs
+ProjectItem:D:\github\dubiousLogik\CSharp\Patterns\Patterns\Bridge\IAbstractBridge.cs
+ProjectItem:D:\github\dubiousLogik\CSharp\Patterns\Patterns\Bridge\BridgeAbstraction.cs
+ProjectItem:D:\github\dubiousLogik\CSharp\Patterns\Patterns\Bridge\BridgePatternRunner.cs
+ProjectItem:D:\github\dubiousLogik\CSharp\Patterns\Patterns\Utilities\OutputHelper.cs

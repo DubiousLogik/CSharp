@@ -43,7 +43,7 @@ namespace BezierClock
         protected override void DrawMinuteHand(Graphics grfx, Pen pen)
         {
             GraphicsState gs = grfx.Save();
-            grfx.RotateTransform(360f * Time.Hour / 12 + 30f * Time.Minute / 60);
+            grfx.RotateTransform(360f * Time.Minute / 60 + 6f * Time.Second / 60);
             grfx.DrawBeziers(pen, new Point[]
             {
                 new Point(0, -800),

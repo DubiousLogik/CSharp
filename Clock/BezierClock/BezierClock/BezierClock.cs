@@ -11,16 +11,29 @@ namespace BezierClock
     public class BezierClock : Form
     {
         BezierClockControl clkctrl;
+        bool showUtc;
 
-        public BezierClock()
+        public BezierClock(bool useUtc)
         {
-            Text = "Bezier Analog Clock";
+            this.showUtc = useUtc;
+
             BackColor = SystemColors.Window;
             ForeColor = SystemColors.WindowText;
 
             clkctrl = new BezierClockControl();
             clkctrl.Parent = this;
-            clkctrl.Time = DateTime.UtcNow;
+
+            if (this.showUtc)
+            {
+                clkctrl.Time = DateTime.UtcNow;
+                Text = "Time Zone:  UTC";
+            }
+            else
+            {
+                clkctrl.Time = DateTime.Now;
+                Text = $"Time Zone:  Local";
+            }
+
             clkctrl.Dock = DockStyle.Fill;
             clkctrl.BackColor = Color.Black;
             clkctrl.ForeColor = Color.White;
@@ -33,7 +46,14 @@ namespace BezierClock
 
         void TimerOnTick(object o, EventArgs e)
         {
-            clkctrl.Time = DateTime.UtcNow;
+            if (this.showUtc)
+            {
+                clkctrl.Time = DateTime.UtcNow;
+            }
+            else
+            {
+                clkctrl.Time = DateTime.Now;
+            }
         }
     }
 }
