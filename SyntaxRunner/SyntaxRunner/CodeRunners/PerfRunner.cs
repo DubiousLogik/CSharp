@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SyntaxRunner.Interfaces;
 using SyntaxRunner.String;
 
 namespace SyntaxRunner.CodeRunners
 {
-    public static class PerfRunner
+    public class PerfRunner : IRunnable
     {
-        public static void Run()
+        public void Run()
         {
             RunPerfMatching();
         }
