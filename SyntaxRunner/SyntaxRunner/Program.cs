@@ -13,24 +13,33 @@ namespace SyntaxRunner
     {
         static void Main(string[] args)
         {
-            var runList = new List<IRunnable>()
-            {
-                new ListRunner(),
-                new OoRunner(),
-                new PerfRunner(),
-                new StringRunner()
-            };
+            var runList = new List<string>();
+
+            runList.Add("list");
+            runList.Add("oo");
+            //runList.Add("perf");
+            runList.Add("string");
 
             ExecuteRunList(runList);
 
             Console.ReadLine();
         }
 
-        private static void ExecuteRunList(List<IRunnable> list)
+        private static void ExecuteRunList(List<string> list)
         {
             foreach (var item in list)
             {
-                item.Run();
+                var runner = new ExampleRunner(item);
+
+                Console.WriteLine();
+                Console.WriteLine($"Running {item.GetType().Name} =============================================================");
+                Console.WriteLine();
+
+                runner.Run();
+
+                Console.WriteLine();
+                Console.WriteLine($"Ending {item.GetType().Name} =============================================================");
+                Console.WriteLine();
             }
         }
     }

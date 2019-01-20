@@ -9,18 +9,18 @@ using SyntaxRunner.ObjOr;
 
 namespace SyntaxRunner.CodeRunners
 {
-    public class OoRunner : IRunnable
+    public class ExampleRunner : IRunnable
     {
-        private IExampleRunner runner;
+        private IExampleRunner exampleRunner;
 
-        public OoRunner()
+        public ExampleRunner(string runnerName)
         {
-            this.runner = new OoExamples();
+            this.exampleRunner = RunnerFactory.GetExampleRunner(runnerName);
         }
 
         public void Run()
         {
-            this.runner.RunExamples();
+            this.exampleRunner.RunExamples();
         }
     }
 }
