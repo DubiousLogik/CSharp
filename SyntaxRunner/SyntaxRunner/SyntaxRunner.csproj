@@ -43,10 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeRunners\ListRunner.cs" />
-    <Compile Include="CodeRunners\OoRunner.cs" />
-    <Compile Include="CodeRunners\PerfRunner.cs" />
-    <Compile Include="CodeRunners\StringRunner.cs" />
     <Compile Include="CodeRunners\ExampleRunner.cs" />
     <Compile Include="Enums\Cars.cs" />
     <Compile Include="Interfaces\IExampleRunner.cs" />
@@ -57,7 +53,7 @@
     <Compile Include="ObjOr\Mutability.cs" />
     <Compile Include="ObjOr\NullChecking.cs" />
     <Compile Include="ObjOr\OoExamples.cs" />
-    <Compile Include="ObjOr\RunnerFactory.cs" />
+    <Compile Include="CodeRunners\RunnerFactory.cs" />
     <Compile Include="Performance\PerfExamples.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

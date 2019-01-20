@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SyntaxRunner.CodeRunners;
-using SyntaxRunner.Interfaces;
 
 namespace SyntaxRunner
 {

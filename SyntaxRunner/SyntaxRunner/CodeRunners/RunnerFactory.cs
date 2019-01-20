@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 using SyntaxRunner.Lists;
 using SyntaxRunner.Interfaces;
+using SyntaxRunner.ObjOr;
 using SyntaxRunner.Performance;
 using SyntaxRunner.String;
 
-namespace SyntaxRunner.ObjOr
+namespace SyntaxRunner.CodeRunners
 {
     public static class RunnerFactory
     {
