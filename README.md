@@ -5,4 +5,7 @@ This library contains projects I'm writing to both refresh and grow my coding sk
 
 A note on timelines - this transition may take a year or two - my day job is demanding, I have a family, and I value work/life balance.  This confines my coding to lunch hours, late nights and early mornings.  I started this journey in May 2015, will add an end date when I write code for my day job...
 
+[July 2016] Began working as a dev full time
+[July 2018] Still learning every day
+
 //robbie d
