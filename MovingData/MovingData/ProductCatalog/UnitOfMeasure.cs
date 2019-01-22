@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovingData.Json.Models
+namespace MovingData.ProductCatalog
 {
     public enum UnitOfMeasure
     {

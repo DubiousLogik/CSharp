@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovingData.Json.Logic
+namespace MovingData.OrderManagement
 {
     public class OrderLogic
     {

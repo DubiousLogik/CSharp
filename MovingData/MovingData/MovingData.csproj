@@ -47,13 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Json\Generators\JsonOrderSample.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderItem.cs" />
+    <Compile Include="Entities\Product.cs" />
     <Compile Include="Json\JsonRunner.cs" />
-    <Compile Include="Json\Logic\OrderLogic.cs" />
-    <Compile Include="Json\Models\Order.cs" />
-    <Compile Include="Json\Models\OrderItem.cs" />
-    <Compile Include="Json\Models\Product.cs" />
-    <Compile Include="Json\Models\UnitOfMeasure.cs" />
+    <Compile Include="Json\Transforms\OrderItemJsonTransformer.cs" />
+    <Compile Include="Json\Transforms\OrderJsonTransformer.cs" />
+    <Compile Include="Json\Transforms\ProductJsonTransformer.cs" />
+    <Compile Include="OrderManagement\OrderLogic.cs" />
+    <Compile Include="Json\Models\OrderJson.cs" />
+    <Compile Include="Json\Models\OrderItemJson.cs" />
+    <Compile Include="Json\Models\ProductJson.cs" />
+    <Compile Include="OrderManagement\OrderSampleGenerator.cs" />
+    <Compile Include="ProductCatalog\UnitOfMeasure.cs" />
+    <Compile Include="ProductCatalog\CatalogManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,6 +68,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

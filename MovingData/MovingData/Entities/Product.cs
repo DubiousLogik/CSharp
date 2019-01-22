@@ -4,22 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Newtonsoft.Json;
+using MovingData.ProductCatalog;
 
-namespace MovingData.Json.Models
+namespace MovingData.Entities
 {
     public class Product
     {
-        [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty("description")]
         public string Description { get; set; }
 
-        [JsonProperty("unitCost")]
         public decimal UnitCost { get; set; }
 
-        [JsonProperty("unitOfMeasure")]
         public UnitOfMeasure UoM { get; set; }
+
+        public string UnitOfMeasureDescription { get; set; }
     }
 }

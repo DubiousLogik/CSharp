@@ -4,30 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Newtonsoft.Json;
-
-namespace MovingData.Json.Models
+namespace MovingData.Entities
 {
     public class Order
     {
-        [JsonProperty("id")]
         public int Id { get; set; }
 
-        [JsonProperty("orderItems")]
-        public List<OrderItem> OrderItems { get
+        public List<OrderItem> OrderItems
+        {
+            get
             {
                 return this.orderItems;
             }
         }
 
-        [JsonProperty("subtotal")]
         public decimal Subtotal { get; set; }
 
-        [JsonProperty("tax")]
         public decimal Tax { get; set; }
 
-        [JsonProperty("total")]
         public decimal Total { get; set; }
+
 
         private int nextOrderItemNumber;
 
@@ -47,7 +43,8 @@ namespace MovingData.Json.Models
             {
                 LineItemNumber = this.nextOrderItemNumber,
                 Product = p,
-                LineItemCost = quantity * p.UnitCost
+                LineItemCost = quantity * p.UnitCost,
+                Quantity = quantity
             };
 
             this.orderItems.Add(oi);
@@ -93,5 +90,6 @@ namespace MovingData.Json.Models
             this.Tax = this.Total * this.taxRate;
             this.Total += this.Tax;
         }
+
     }
 }
