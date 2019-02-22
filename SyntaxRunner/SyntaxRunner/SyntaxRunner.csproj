@@ -50,6 +50,7 @@
     <Compile Include="Lists\ListExamples.cs" />
     <Compile Include="Models\ItemUpdateState.cs" />
     <Compile Include="Models\GenericObject.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="ObjOr\Mutability.cs" />
     <Compile Include="ObjOr\NullChecking.cs" />
     <Compile Include="ObjOr\OoExamples.cs" />

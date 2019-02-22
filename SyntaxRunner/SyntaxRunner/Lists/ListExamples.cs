@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using SyntaxRunner.Enums;
 using SyntaxRunner.Interfaces;
+using SyntaxRunner.Models;
 
 namespace SyntaxRunner.Lists
 {
@@ -16,6 +17,7 @@ namespace SyntaxRunner.Lists
             RunEnums();
             DictionaryTester();
             RunLists();
+            GetMinMaxInOnePass();
         }
 
         public static void DictionaryTester()
@@ -80,6 +82,27 @@ namespace SyntaxRunner.Lists
             {
                 Console.WriteLine($"header = {kvp.Key}: {kvp.Value}");
             }
+        }
+
+        public static void GetMinMaxInOnePass()
+        {
+            int min = int.MaxValue;
+            int max = int.MinValue;
+
+            var personList = new List<Person>()
+            {
+                new Person() { Age = 22 },
+                new Person() { Age = 34 },
+                new Person() { Age = 19 }
+            };
+
+            foreach (var p in personList)
+            {
+                if (p.Age < min) { min = p.Age; }
+                if (p.Age > max) { max = p.Age; }
+            }
+
+            Console.WriteLine($"min {min} max {max}");
         }
     }
 }
