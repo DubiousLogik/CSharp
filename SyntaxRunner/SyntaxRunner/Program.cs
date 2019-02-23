@@ -17,7 +17,8 @@ namespace SyntaxRunner
             //runList.Add("list");
             //runList.Add("oo");
             //runList.Add("perf");
-            runList.Add("string");
+            //runList.Add("string");
+            runList.Add("datetime");
 
             ExecuteRunList(runList);
 

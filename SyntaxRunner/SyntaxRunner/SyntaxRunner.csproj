@@ -44,10 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeRunners\ExampleRunner.cs" />
+    <Compile Include="DateAndTime\DateTimeExamples.cs" />
     <Compile Include="Enums\Cars.cs" />
     <Compile Include="Interfaces\IExampleRunner.cs" />
     <Compile Include="Interfaces\IRunnable.cs" />
     <Compile Include="Lists\ListExamples.cs" />
+    <Compile Include="Models\DocumentReferenceList.cs" />
     <Compile Include="Models\ItemUpdateState.cs" />
     <Compile Include="Models\GenericObject.cs" />
     <Compile Include="Models\Person.cs" />

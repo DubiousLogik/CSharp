@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SyntaxRunner.DateAndTime;
 using SyntaxRunner.Lists;
 using SyntaxRunner.Interfaces;
 using SyntaxRunner.ObjOr;
@@ -26,6 +27,8 @@ namespace SyntaxRunner.CodeRunners
                     return new PerfExamples();
                 case "string":
                     return new StringExamples();
+                case "datetime":
+                    return new DateTimeExamples();
                 default:
                     return null;
             };
