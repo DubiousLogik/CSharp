@@ -14,10 +14,12 @@ namespace SyntaxRunner
         {
             var runList = new List<string>();
 
-            runList.Add("list");
-            runList.Add("oo");
+            //runList.Add("list");
+            //runList.Add("oo");
             //runList.Add("perf");
             runList.Add("string");
+            //runList.Add("datetime");
+            //runList.Add("numeric");
 
             ExecuteRunList(runList);
 

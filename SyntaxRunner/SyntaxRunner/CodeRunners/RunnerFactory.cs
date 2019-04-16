@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SyntaxRunner.DateAndTime;
 using SyntaxRunner.Lists;
 using SyntaxRunner.Interfaces;
 using SyntaxRunner.ObjOr;
 using SyntaxRunner.Performance;
 using SyntaxRunner.String;
+using SyntaxRunner.Numeric;
 
 namespace SyntaxRunner.CodeRunners
 {
@@ -26,6 +28,10 @@ namespace SyntaxRunner.CodeRunners
                     return new PerfExamples();
                 case "string":
                     return new StringExamples();
+                case "datetime":
+                    return new DateTimeExamples();
+                case "numeric":
+                    return new NumericExamples();
                 default:
                     return null;
             };

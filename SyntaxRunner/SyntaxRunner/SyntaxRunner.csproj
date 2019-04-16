@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\cxcache\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,12 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeRunners\ExampleRunner.cs" />
+    <Compile Include="DateAndTime\DateTimeExamples.cs" />
     <Compile Include="Enums\Cars.cs" />
     <Compile Include="Interfaces\IExampleRunner.cs" />
     <Compile Include="Interfaces\IRunnable.cs" />
     <Compile Include="Lists\ListExamples.cs" />
+    <Compile Include="Models\CompactDocumentActionList.cs" />
     <Compile Include="Models\ItemUpdateState.cs" />
     <Compile Include="Models\GenericObject.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Numeric\NumericExamples.cs" />
     <Compile Include="ObjOr\Mutability.cs" />
     <Compile Include="ObjOr\NullChecking.cs" />
     <Compile Include="ObjOr\OoExamples.cs" />
@@ -64,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

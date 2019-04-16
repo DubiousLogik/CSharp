@@ -17,6 +17,8 @@ namespace SyntaxRunner.ObjOr
 
             var n = new NullChecking();
             n.TestForNulls();
+
+            n.ConditionalNulls();
         }
     }
 }
