@@ -10,6 +10,7 @@ using SyntaxRunner.Interfaces;
 using SyntaxRunner.ObjOr;
 using SyntaxRunner.Performance;
 using SyntaxRunner.String;
+using SyntaxRunner.Numeric;
 
 namespace SyntaxRunner.CodeRunners
 {
@@ -29,6 +30,8 @@ namespace SyntaxRunner.CodeRunners
                     return new StringExamples();
                 case "datetime":
                     return new DateTimeExamples();
+                case "numeric":
+                    return new NumericExamples();
                 default:
                     return null;
             };

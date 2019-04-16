@@ -23,6 +23,19 @@ namespace SyntaxRunner.String
             var sp = new StringParser();
 
             Console.WriteLine($"Last token in {url} is {sp.GetLastElement(url, '/')}");
+
+            string email = "SMTP:joe.smith@outlook.com";
+            Console.WriteLine($"Email to plain text {email} = {sp.EmailToPlainText(email)}");
+
+            email = "SMTP:harvey_J_jones-smith%40outlook#com";
+            Console.WriteLine($"Email to plain text {email} = {sp.EmailToPlainText(email)}");
+
+            string data = "{2DA4934B-8B67-604B-8CC5-467045D39FAC}";
+            Console.WriteLine($"Remove first and last: input = {data}, output = {sp.RemoveBracketsAndToLower(data)}");
+            data = "2DA4934B-8B67-604B-8CC5-467045D39FAC";
+            Console.WriteLine($"Remove first and last: input = {data}, output = {sp.RemoveBracketsAndToLower(data)}");
+            data = null;
+            Console.WriteLine($"Remove first and last: input = {data}, output = {sp.RemoveBracketsAndToLower(data)}");
         }
 
         public static void GuidParsing()

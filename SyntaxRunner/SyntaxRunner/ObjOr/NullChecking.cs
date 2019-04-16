@@ -35,5 +35,30 @@ namespace SyntaxRunner.ObjOr
 
             Console.WriteLine($"result = {result}");
         }
+
+        public void ConditionalNulls()
+        {
+            var list = new List<int>();
+            List<int> nullList = null;
+
+            this.ProcessNullableList(list);
+            this.ProcessNullableList(nullList);
+
+            var element = nullList?.First();
+            
+            if (element == null)
+            {
+                Console.WriteLine("element is null");
+            }
+            else
+            {
+                Console.WriteLine($"element is of type {element.GetType()}");
+            }
+        }
+
+        public void ProcessNullableList(List<int> list)
+        {
+            Console.WriteLine($"List length = {list?.Count}");
+        }
     }
 }

@@ -14,10 +14,11 @@ namespace SyntaxRunner.Lists
     {
         public void RunExamples()
         {
-            RunEnums();
-            DictionaryTester();
-            RunLists();
-            GetMinMaxInOnePass();
+            //RunEnums();
+            //DictionaryTester();
+            //RunLists();
+            //GetMinMaxInOnePass();
+            DictionaryObjectTester();
         }
 
         public static void DictionaryTester()
@@ -37,6 +38,23 @@ namespace SyntaxRunner.Lists
             {
                 Console.WriteLine($"key {kvp.Key}, value {kvp.Value}");
             }
+
+            bool removed = tester.Remove("key2");
+            bool notfound = tester.Remove("nonExistentKey");
+
+            Console.WriteLine($"removed valid key: {removed}");
+            Console.WriteLine($"invalid key found: {notfound}");
+
+            Console.WriteLine($"removal of empty string {tester.Remove(string.Empty)}");
+
+            try
+            {
+                bool error = tester.Remove(null);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Caught error: {e.Message}");
+            }
         }
 
         public static void RunEnums()
@@ -45,6 +63,20 @@ namespace SyntaxRunner.Lists
             {
                 Console.WriteLine($"Cars [{i}] = {((Cars)i).ToString()}");
             }
+
+            int sampleValueFromUserInput = 2;
+            int valueOutOfRange = 1001;
+
+            var car1 = (Cars)1;
+            var car2 = (Cars)sampleValueFromUserInput;
+            var car3 = (Cars)valueOutOfRange;
+
+            bool exists = Enum.IsDefined(typeof(Cars), sampleValueFromUserInput);
+            bool existsOutOfRange = Enum.IsDefined(typeof(Cars), valueOutOfRange);
+
+            Console.WriteLine($"Car1 resolved to {car1.ToString()}");
+            Console.WriteLine($"Car2 resolved to {car2.ToString()}, exists = {exists}");
+            Console.WriteLine($"Car3 resolved to {car3.ToString()}, exists = {existsOutOfRange}");
         }
 
         public static void RunLists()
@@ -103,6 +135,22 @@ namespace SyntaxRunner.Lists
             }
 
             Console.WriteLine($"min {min} max {max}");
+        }
+
+        public static void DictionaryObjectTester()
+        {
+            var one = new Dictionary<string, int>();
+            one.Add("a", 1);
+            one.Add("b", 2);
+
+            var two = new Dictionary<string, int>(one);
+
+            Console.WriteLine($"one obj id {one.GetHashCode()}");
+            Console.WriteLine($"two obj id {two.GetHashCode()}");
+
+            two["b"] = 3;
+
+            Console.WriteLine($"one[b] = {one["b"]}, two[b] {two["b"]}");
         }
     }
 }
