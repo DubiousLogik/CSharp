@@ -19,6 +19,9 @@ namespace SyntaxRunner.ObjOr
             n.TestForNulls();
 
             n.ConditionalNulls();
+
+            ObjectProperties.StringObjectsComparison();
+            ObjectProperties.CompareSizes();
         }
     }
 }
