@@ -59,6 +59,7 @@
     <Compile Include="Numeric\NumericExamples.cs" />
     <Compile Include="ObjOr\Mutability.cs" />
     <Compile Include="ObjOr\NullChecking.cs" />
+    <Compile Include="ObjOr\ObjectProperties.cs" />
     <Compile Include="ObjOr\OoExamples.cs" />
     <Compile Include="CodeRunners\RunnerFactory.cs" />
     <Compile Include="Performance\PerfExamples.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="String\StringExamples.cs" />
     <Compile Include="String\StringMatcher.cs" />
     <Compile Include="String\StringParser.cs" />
+    <Compile Include="Utils\TestSize.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
